@@ -1,0 +1,26 @@
+/* settings styles */
+.csf-copyright{
+    display: none !important;
+}
+.csf-header-inner, .csf-footer, .csf-content{
+    border-radius: 16px !important;
+
+}
+.csf-content{
+    margin: 10px 0px !important;
+}
+.csf-header-inner, .csf-footer{
+    padding: 30px !important;
+    border: 0px !important;
+    background-color: #70E000 !important;
+    
+}
+.csf-container{
+    border: 0px !important;
+}
+.csf-header-left h1{
+    color: black !important;
+}
+.csf-header-inner input, .csf-footer input{
+    border-radius: 16px !important;
+}

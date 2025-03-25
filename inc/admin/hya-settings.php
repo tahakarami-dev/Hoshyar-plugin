@@ -10,12 +10,18 @@ CSF::createOptions($prefix, array(
     'menu_title'    => 'تنظیمات',
     'menu_hidden' => true,
     'menu_slug'     => 'hya_menu_settings',
-    'framework_title' => 'تنظیمات هوشیار',
+    'framework_title' => ' تنظیمات هوشیار' ,
 ));
 
 CSF::createSection($prefix, array(
     'title'  => 'تنظیمات عمومی',
     'fields' => array(
-     
+
+     array(
+  'id'      => 'opt-text',
+  'type'    => 'text',
+  'title'   => 'عنوان',
+),
+
     )
 ));
