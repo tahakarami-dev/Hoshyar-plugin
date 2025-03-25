@@ -72,7 +72,7 @@ class Core
         require_once HYA_INC_PATH . 'admin/hya-settings.php';
         require_once  HYA_INC_PATH . 'functions.php';
 
-         
+
         register_activation_hook(HYA_BASE_FILE, [$this, 'active']);
         register_deactivation_hook(HYA_BASE_FILE, [$this, 'deactive']);
 
@@ -89,7 +89,6 @@ class Core
         if (is_admin()) {
 
             new HYA_Menu();
-
         } else {
         }
     }
