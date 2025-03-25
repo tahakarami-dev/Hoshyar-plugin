@@ -493,7 +493,7 @@ if ( ! class_exists( 'CSF_Options' ) ) {
         wp_nonce_field( 'csf_options_nonce', 'csf_options_nonce'. $this->unique );
 
         echo '<div class="csf-header'. esc_attr( $sticky_class ) .'">';
-        echo '<div class="csf-header-inner">';
+        echo '<div id="settings-header" class="csf-header-inner ">';
 
           echo '<div class="csf-header-left">';
           echo '<h1>'. $this->args['framework_title'] .'</h1>';
