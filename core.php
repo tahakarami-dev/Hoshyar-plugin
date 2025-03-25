@@ -89,6 +89,7 @@ class Core
         if (is_admin()) {
 
             new HYA_Menu();
+            
         } else {
         }
     }
