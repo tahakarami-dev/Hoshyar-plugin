@@ -14,14 +14,72 @@ CSF::createOptions($prefix, array(
 ));
 
 CSF::createSection($prefix, array(
-    'title'  => 'تنظیمات عمومی',
+    'title'  => 'عمومی',
     'fields' => array(
-
-     array(
-  'id'      => 'opt-text',
-  'type'    => 'text',
-  'title'   => 'عنوان',
-),
 
     )
 ));
+
+CSF::createSection($prefix, array(
+    'title'  => 'تولید محتوا',
+    'fields' => array(
+
+    )
+));
+
+CSF::createSection($prefix, array(
+    'title'  => ' چت و تعامل با هوش مصنوعی',
+    'fields' => array(
+
+    )
+));
+
+CSF::createSection($prefix, array(
+    'title'  => 'تولید تصویر',
+    'fields' => array(
+
+    )
+));
+
+CSF::createSection($prefix, array(
+    'title'  => ' بهینه‌سازی و سئو',
+    'fields' => array(
+
+    )
+));
+
+CSF::createSection($prefix, array(
+    'title'  => ' اتوماسیون و کران‌جاب',
+    'fields' => array(
+
+    )
+));
+
+CSF::createSection($prefix, array(
+    'title'  => '  API و وب‌هوک',
+    'fields' => array(
+
+    )
+));
+
+CSF::createSection($prefix, array(
+    'title'  => ' شخصی‌سازی',
+    'fields' => array(
+
+    )
+));
+
+CSF::createSection($prefix, array(
+    'title'  => ' ذخیره‌سازی و کش ',
+    'fields' => array(
+
+    )
+));
+
+CSF::createSection($prefix, array(
+    'title'  => 'امنیت و حریم خصوصی',
+    'fields' => array(
+
+    )
+));
+
