@@ -1,0 +1,11 @@
+{
+    "name": "msi/hoshyar",
+    "authors": [
+        {
+            "name": "Taha Karami",
+            "email": "tahakarami2088@gamil.com"
+        }
+    ],
+    "autoload": {
+        "classmap" : ["inc/"]
+    }}
