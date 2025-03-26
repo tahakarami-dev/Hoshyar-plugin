@@ -79,11 +79,7 @@ class Core
 
         hya_settings();
 
-
-
-
-
-
+        
         new HYA_ASSETS();
 
         if (is_admin()) {
