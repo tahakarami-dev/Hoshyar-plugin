@@ -2,3 +2,93 @@
 .csf-copyright{
     display: none !important;
 }
+.hooshyar-header{
+    background-color: #222831;
+    margin:20px 15px ;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+.hooshyar-header .logo {
+    width: 230px;
+}
+.hooshyar-header svg{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 7px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+.sidebar {
+    width: 20%;
+    background: #EEEEEE;
+    padding: 7px ;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.212);
+    border-radius: 16px;
+    margin:5px 15px ;
+
+
+}
+.tab {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    text-align: right;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: right;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.192);
+    margin: 5px 0;
+    width: 100%;
+}
+
+.tab:hover, .tab.active {
+    background: linear-gradient(135deg , #00c090, #A3FF00);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.1);
+    border-color: rgba(0, 0, 0, 0.3);
+}
+.content {
+    flex: 1;
+    padding: 7px 20px ;
+    margin-right: -15px;
+}
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+.tab-icon{
+    width: 28px;
+    margin-left: 10px;
+}
+.hooshyar-dashboard .alert {
+    border-radius: 14px;
+    background-color: #d8f0cb;  
+    border-right: 7px solid #79b84a; 
+    padding: 3px 15px;
+    color: #347016; 
+    font-weight: 500;
+}
+
+.hooshyar-dashboard .alert p{
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 7px;
+}
+

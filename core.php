@@ -53,6 +53,7 @@ class Core
         define('HYA_URL', trailingslashit(plugin_dir_url(HYA_BASE_FILE)));
         define('HYA_ADMIN_ASSETS', trailingslashit(HYA_URL . 'assets/admin'));
         define('HYA_FRONT_ASSETS', trailingslashit(HYA_URL . 'assets/front'));
+        define('HYA_ASSETS', trailingslashit(HYA_URL . 'assets/'));
         define('HYA_INC_PATH', trailingslashit(HYA_PATH . 'inc'));
         define('HYA_VIEWS_PATH', trailingslashit(HYA_PATH . 'views'));
 

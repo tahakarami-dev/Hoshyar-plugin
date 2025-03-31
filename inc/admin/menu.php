@@ -6,19 +6,20 @@ class HYA_Menu {
     }
 
     public function add_menu() {
+        $logo_url = HYA_ASSETS . 'images/logo.png';
         add_menu_page(
             'هوشیار',
             'هوشیار', 
             'manage_options', 
-            'hoshyar', 
+            'dashboard-hooshyar', 
             array($this, 'main_menu_page'), 
-            'dashicons-lightbulb',
+            $logo_url,
             2 
         );
 
         
         add_submenu_page(
-            'hoshyar', 
+            'dashboard-hooshyar', 
             'تنظیمات هوشیار', 
             'تنظیمات', 
             'manage_options', 
@@ -29,6 +30,7 @@ class HYA_Menu {
     }
 
     public function main_menu_page() {
+        require_once HYA_VIEWS_PATH . 'admin/dashboard.php';
     }
 
     public function settings_page() {
