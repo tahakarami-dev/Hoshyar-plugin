@@ -15,30 +15,69 @@
                 <img class="tab-icon" src="<?php echo HYA_ASSETS . 'images/icons8-dashboard.png' ?>" alt="">
             </button>
             <button class="tab" data-tab="Reports"> گزارشات
-            <img  class="tab-icon"src="<?php echo HYA_ASSETS . 'images/icons8-reports.png' ?>" alt="">
+                <img class="tab-icon" src="<?php echo HYA_ASSETS . 'images/icons8-reports.png' ?>" alt="">
 
             </button>
-            <button class="tab" data-tab="sysetm-info"> وضعیت سیستم 
-            <img class="tab-icon" src="<?php echo HYA_ASSETS . 'images/icons8-system-information.png' ?>" alt="">
+            <button class="tab" data-tab="sysetm-info"> وضعیت سیستم
+                <img class="tab-icon" src="<?php echo HYA_ASSETS . 'images/icons8-system-information.png' ?>" alt="">
 
             </button>
             <button class="tab" data-tab="Help"> راهنما
-            <img class="tab-icon" src="<?php echo HYA_ASSETS . 'images/icons8-info.png' ?>" alt="">
+                <img class="tab-icon" src="<?php echo HYA_ASSETS . 'images/icons8-info.png' ?>" alt="">
             </button>
         </aside>
         <main class="content">
             <div id="dashboard" class="tab-content active">
                 <div class="alert">
-                <p class="alert-message">به افزونه دستیار هوش مصنوعی هوشیار خوش آمدید</p>
+                    <p class="alert-message">به افزونه دستیار هوش مصنوعی <b>هوشیار</b> خوش آمدید</p>
                 </div>
                 <div class="info-holder">
+
                     <div class="info-box">
-                        
+                        <p>وضعیت افزونه</p>
+                        <span>فعال</span>
                     </div>
-                    <div class="info-box"></div>
-                    <div class="info-box"></div>
-                    <div class="info-box"></div>
+                    <div class="info-box">
+                        <p>نسخه افزونه</p>
+                        <span>۱.۰.۰</span>
+                    </div>
+                    <div class="info-box">
+                        <p>وضعیت سرویس ها</p>
+                        <span>فعال</span>
+                    </div>
+                    <div class="info-box">
+                        <p> تعداد خطاهای ثبت‌شده
+                        </p>
+                        <span>۳</span>
+                    </div>
+
                 </div>
+
+                <div class="Announcement">
+                    <h3>اطلاعیه ها </h3>
+                    <div class="Announcement-content">
+                        <div class="content">
+                            <img src="<?php echo HYA_ASSETS . 'images/a_modern_software_developer_working_at_a_high-tech_desk_surrounded_by_humanoid_robots_and_ai-powere_r0i9wx0sbkl0cn2zvo4o_3.png' ?>" alt="">
+                            <span>آپدیت جدید افزونه هوشیار</span>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+                            <button>مشاهده</button>
+                        </div>
+                        <div class="content">
+                            <img src="<?php echo HYA_ASSETS . 'images/a_modern_software_developer_working_at_a_high-tech_desk_surrounded_by_humanoid_robots_and_ai-powere_r0i9wx0sbkl0cn2zvo4o_3.png' ?>" alt="">
+                            <span>آپدیت جدید افزونه هوشیار</span>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+                            <button>مشاهده</button>
+                        </div>
+                        <div class="content">
+                            <img src="<?php echo HYA_ASSETS . 'images/a_modern_software_developer_working_at_a_high-tech_desk_surrounded_by_humanoid_robots_and_ai-powere_r0i9wx0sbkl0cn2zvo4o_3.png' ?>" alt="">
+                            <span>آپدیت جدید افزونه هوشیار</span>
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+                            <button>مشاهده</button>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
             <div id="Reports" class="tab-content"> </div>
             <div id="Help" class="tab-content"> </div>
