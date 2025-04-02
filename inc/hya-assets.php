@@ -18,6 +18,8 @@ class HYA_ASSETS{
        //script
        wp_enqueue_media();
         wp_enqueue_script('HYA-main' , HYA_ADMIN_ASSETS . 'js/main.js' , ['jquery'] ,HYA_VER ,true);
+        wp_enqueue_script('HYA-chart' ,  'https://cdn.jsdelivr.net/npm/chart.js' , ['jquery'] ,HYA_VER ,true);
+
         wp_localize_script('HYA-main','HYA_DATA', [
             'ajax_url' => admin_url('admin-ajax.php'),
         ]);
