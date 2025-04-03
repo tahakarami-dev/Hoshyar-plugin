@@ -61,6 +61,7 @@ class ComposerStaticInitd5713d3456b1ba5e951974051533b7c0
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'HYA_ASSETS' => __DIR__ . '/../..' . '/inc/hya-assets.php',
         'HYA_Menu' => __DIR__ . '/../..' . '/inc/admin/menu.php',
+        'Hooshyar_Chatbot_Controller' => __DIR__ . '/../..' . '/inc/modules/front/chatbot/chatbot-controller.php',
         'WP_Customize_Control_CSF' => __DIR__ . '/../..' . '/inc/admin/codestar/functions/customize.php',
         'WP_Customize_Panel_CSF' => __DIR__ . '/../..' . '/inc/admin/codestar/functions/customize.php',
         'WP_Customize_Section_CSF' => __DIR__ . '/../..' . '/inc/admin/codestar/functions/customize.php',

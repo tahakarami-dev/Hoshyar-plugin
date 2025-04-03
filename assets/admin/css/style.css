@@ -135,7 +135,7 @@
     justify-content: space-around;
     padding: 15px 20px  ;
     color: white;
-    background:linear-gradient(135deg, #4c9a00,#00c090 ) ;
+    background:linear-gradient(155deg, #212730, #16c77a ) ;
     gap: 10px;
     
 }
@@ -223,7 +223,7 @@
     margin: 0 auto;
 }
 
-.report-header {
+.content-header  {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -233,12 +233,12 @@
     flex-wrap: wrap;
 }
 
-.report-header h1 {
+.content-header h1 {
     margin: 0;
     font-size: 1.5rem;
 }
 
-.time-filter {
+.content-info {
     display: flex;
     gap: 10px;
     margin-top: 10px;
@@ -251,7 +251,7 @@
     font-family: inherit;
 }
 
-#refresh-btn {
+#content-btn , #refresh-btn{
     background: #16c77a;
     color: white;
     border: none;
@@ -262,7 +262,7 @@
     font-family: inherit;
 }
 
-#refresh-btn:hover {
+#content-btn:hover {
     background: #16c77a;
 }
 
@@ -350,12 +350,12 @@
         flex-direction: column;
     }
     
-    .report-header {
+    .content-header {
         flex-direction: column;
         align-items: flex-start;
     }
     
-    .time-filter {
+    .content-info {
         width: 100%;
         margin-top: 15px;
     }
@@ -388,7 +388,7 @@
     margin-top: 10px;
 }
 
-.refresh-btn {
+.content-btn {
     background: #16c77a;
     color: white;
     border: none;
@@ -402,7 +402,7 @@
     transition: all 0.3s;
 }
 
-.refresh-btn:hover {
+.content-btn:hover {
     background: #14b16d;
     transform: rotate(180deg);
 }
@@ -488,6 +488,7 @@
 .metric-value {
     font-weight: bold;
     font-size: 1.1rem;
+    margin-top: 8px;
 }
 
 .status-footer {

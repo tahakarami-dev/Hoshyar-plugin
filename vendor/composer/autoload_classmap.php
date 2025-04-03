@@ -60,6 +60,7 @@ return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'HYA_ASSETS' => $baseDir . '/inc/hya-assets.php',
     'HYA_Menu' => $baseDir . '/inc/admin/menu.php',
+    'Hooshyar_Chatbot_Controller' => $baseDir . '/inc/modules/front/chatbot/chatbot-controller.php',
     'WP_Customize_Control_CSF' => $baseDir . '/inc/admin/codestar/functions/customize.php',
     'WP_Customize_Panel_CSF' => $baseDir . '/inc/admin/codestar/functions/customize.php',
     'WP_Customize_Section_CSF' => $baseDir . '/inc/admin/codestar/functions/customize.php',

@@ -6,7 +6,7 @@ class HYA_Menu {
     }
 
     public function add_menu() {
-        $logo_url = HYA_ASSETS . 'images/logo.png';
+        $logo_url = HYA_ASSETS . 'images/admin/logo.png';
         add_menu_page(
             'هوشیار',
             'هوشیار', 
@@ -30,7 +30,7 @@ class HYA_Menu {
     }
 
     public function main_menu_page() {
-        require_once HYA_VIEWS_PATH . 'admin/dashboard.php';
+        require_once HYA_VIEWS_PATH . 'admin/dashboard/dashboard.php';
     }
 
     public function settings_page() {

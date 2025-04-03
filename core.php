@@ -88,6 +88,7 @@ class Core
             new HYA_Menu();
             
         } else {
+            new Hooshyar_Chatbot_Controller();
         }
     }
 
