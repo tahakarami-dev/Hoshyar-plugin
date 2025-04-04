@@ -132,3 +132,15 @@
     height: 48px;
     border-radius: 50%;
 }
+@media (max-width: 768px) {
+    .hooshyar-chatbot-window{
+        bottom: 50px;
+        right: 15px;
+    }
+ 
+    .hooshyar-chatbot-trigger{
+        bottom: 30px;
+        right: 25px;
+    }
+   
+}
