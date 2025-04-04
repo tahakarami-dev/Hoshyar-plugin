@@ -35,6 +35,12 @@ CSF::createSection($prefix, array(
     'fields' => array(
 
         array(
+            'type'    => 'heading',
+            'content' => 'تنظیمات ظاهری',
+        ),
+
+
+        array(
             'id'    => 'status-chatbot',
             'type'  => 'switcher',
             'title' => 'وضعیت نمایش چت بات هوش مصنوعی ',
@@ -69,7 +75,7 @@ CSF::createSection($prefix, array(
             'id'    => 'chatbot-logo',
             'type'  => 'media',
             'title' => 'لوگو چت بات ',
-            'dependency' => array( 'status-chatbot', '==', 'true' ),
+            'dependency' => array('status-chatbot', '==', 'true'),
             'default' =>   HYA_ASSETS . 'images/front/icons8-robot-48.png'
 
         ),
@@ -79,7 +85,7 @@ CSF::createSection($prefix, array(
             'id'    => 'main-color',
             'type'  => 'color',
             'title' => 'رنگ اصلی چت بات ',
-            'dependency' => array( 'status-chatbot', '==', 'true' ),
+            'dependency' => array('status-chatbot', '==', 'true'),
             'output' => array(
                 'color' => '',
                 'background-color' => '.hooshyar-chatbot-trigger ,.chatbot-header,.chatbot-input button,.bot-message',
@@ -94,8 +100,8 @@ CSF::createSection($prefix, array(
         array(
             'id'    => 'text-color',
             'type'  => 'color',
-            'title' => 'رنگ متن های هدر چت بات ',
-            'dependency' => array( 'status-chatbot', '==', 'true' ),
+            'title' => 'رنگ متن های چت بات ',
+            'dependency' => array('status-chatbot', '==', 'true'),
             'output' => array(
                 'color' => '.chatbot-header h3 , .chatbot-header p, .bot-message ',
                 'background-color' => '',

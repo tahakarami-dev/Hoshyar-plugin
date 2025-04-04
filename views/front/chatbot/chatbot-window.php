@@ -9,8 +9,8 @@ $chatbot_logo = hya_settings('chatbot-logo');
     <div class="chatbot-header">
         <div class="content-header">
             <div class="logo">
-                <?php if ($chatbot_logo): ?>
-                    <img class="chatbot-logo" src="<?php echo $chatbot_logo ?>" alt="">
+                <?php if ($chatbot_logo['url']): ?>
+                    <img class="chatbot-logo" src="<?php echo $chatbot_logo['url'] ?>" alt="">
                 <?php else: ?>
                     <img class="chatbot-logo" src="<?php echo HYA_ASSETS . 'images/front/icons8-robot-48.png' ?>" alt="">
                 <?php endif; ?>
@@ -25,12 +25,12 @@ $chatbot_logo = hya_settings('chatbot-logo');
         <button class="close-chatbot"><i class="fas fa-times"></i></button>
     </div>
     <div class="chatbot-messages">
-    <div class="message bot-message show">
-            درود! من چت بات هوشیار هستم. چگونه می‌توانم به شما کمک کنم؟
-        </div>    </div>
+       </div>
     <div class="chatbot-input">
         <input type="text" placeholder="پیام خود را بنویسید...">
         <button class="send-message"><i class="fas fa-paper-plane"></i></button>
+        <button type="file" class="send-file"><i class="fas fa-paperclip"></i></button>
+
     </div>
 </div>
 

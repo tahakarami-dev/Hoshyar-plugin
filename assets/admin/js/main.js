@@ -158,3 +158,4 @@ $('.video-thumbnail').click(function() {
     alert('پخش ویدئوی آموزشی در پنجره جدید');
 });
 })
+

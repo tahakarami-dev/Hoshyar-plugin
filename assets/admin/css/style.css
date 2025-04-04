@@ -343,7 +343,9 @@
 .export-btn:hover {
     background: #16c77a;
 }
-
+.csf-copyright{
+    display: none !important;
+}
 /* رسپانسیو برای موبایل */
 @media (max-width: 768px) {
     .stats-cards {
@@ -351,13 +353,39 @@
     }
     
     .content-header {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
     }
     
     .content-info {
         width: 100%;
         margin-top: 15px;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    .sidebar{
+        width: ;
+    }
+    .content-header h1 {
+        margin-bottom: 8px;
+    }
+    .download-btn{
+        margin-right: 10px;
+    }
+    .Announcement-content{
+        flex-direction: column;
+    }
+    .sidebar{
+        width: auto;
+    }
+    .info-holder {
+        flex-direction: column;
+        
+    }
+    .info-box {
+        padding: 30px 20px !important ;
     }
 }
 
