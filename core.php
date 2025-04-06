@@ -82,13 +82,15 @@ class Core
 
         
         new HYA_ASSETS();
+        new Hooshyar_Chatbot_Controller();
+
 
         if (is_admin()) {
 
             new HYA_Menu();
             
         } else {
-            new Hooshyar_Chatbot_Controller();
+
         }
     }
 
