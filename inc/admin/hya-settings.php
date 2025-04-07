@@ -2,18 +2,8 @@
 
 defined('ABSPATH') || exit('NO Access');
 
-if (!class_exists('CSF')) {
-    return;
 
-    add_filter('hya_settings', function ($saved_data, $request_data, $instance) {
-        if (!empty($request_data['Service-api'])) {
-            $encrypted = openssl_encrypt($request_data['Service-api'], 'AES-128-CTR', SECURE_KEY, 0, SECURE_IV);
-            $saved_data['Service-api'] = $encrypted;
-        }
-        return $saved_data;
-    }, 10, 3);
-    
-}
+
 
 $prefix = 'hya_settings';
 
@@ -83,30 +73,114 @@ CSF::createSection($prefix, array(
 
 
             ),
-            'dependency' => array('Service-name', '==', 'Chatgpt'),
+            'dependency' => array('Service-model', '==', 'Chatgpt'),
+            'dependency' => array('status-chatbot', '==', 'true'),
+
 
         ),
-        // array(
-        //     'id'          => 'Service-Version-deepseek',
-        //     'type'        => 'select',
-        //     'title'       => 'نسخه هوش مصنوعی',
-        //     'placeholder' => ' یک نسخه را انتخاب نمایید',
-        //     'options'     => array(
-        //         'deepseek-chat'  => 'deepseek-chat',
+        array(
+            'id'          => 'Service-Version-deepseek',
+            'type'        => 'select',
+            'title'       => 'نسخه هوش مصنوعی',
+            'placeholder' => ' یک نسخه را انتخاب نمایید',
+            'options'     => array(
+                'deepseek-chat'  => 'deepseek-chat',
 
-        //     ),
-        //     'dependency' => array('Service-name', '==', 'Deepseek'),
+            ),
+            'dependency' => array('Service-model', '==', 'Deepseek'),
+            'dependency' => array('status-chatbot', '==', 'true'),
 
-        // ),
+
+        ),
 
         array(
-            'id'      => 'Service-api',
+            'id'      => 'Service-api-key',
             'type'    => 'text',
-            'title'   => '  کلید API   ',
+            'title'   => 'کلید API',
             'dependency' => array('status-chatbot', '==', 'true'),
             'placeholder' => 'لطفا API را وارد نمایید',
 
+
         ),
+
+        array(
+            'type'    => 'heading',
+            'content' => 'تنظیمات گفتگو',
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+
+        array(
+            'id'      => 'chatbot-welcome-message',
+            'type'    => 'textarea',
+            'title'   => 'پیغام خوش آمدگویی',
+            'default' => 'سلام و خوش آمدید! من هوشیار هستم، دستیار شما. خوشحالم که به اینجا اومدید! هر سوال یا مشکلی که دارید، می‌توانید از من بپرسید. هدف من این است که به شما کمک کنم و تجربه‌ای راحت و مفید داشته باشید. 😊',
+            'dependency' => array('status-chatbot', '==', 'true'),
+        ),
+
+        array(
+            'id'          => 'Chatbot-personality-mode',
+            'type'        => 'select',
+            'title'       => ' حالت شخصیت چت‌بات',
+            'placeholder' => ' یک حالت را انتخاب نمایید',
+            'options'     => array(
+                'Formal'  => 'رسمی',
+                'Friendly'  => 'دوستانه',
+                'Professional'  => 'تخصصی',
+                'Humorous'  => 'شوخ و سرگرم‌کننده',
+                'Casual'  => 'خودمانی',
+                'Empathetic'  => 'احساسی',
+                'Intelligent '  => 'هوشمند و جدی',
+                'Inquisitive '  => 'محققانه',
+
+            ),
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+
+        array(
+            'id'      => 'Response-length-limit',
+            'type'    => 'number',
+            'title'   => 'محدودیت طول پاسخ',
+            'default' => 300,
+            'dependency' => array('status-chatbot', '==', 'true'),
+        ),
+        array(
+            'id'      => 'Maximum-save-message',
+            'type'    => 'number',
+            'title'   => 'حداکثر تعداد پیام‌های ذخیره‌شده',
+            'default' => 30,
+            'dependency' => array('status-chatbot', '==', 'true'),
+        ),
+
+        array(
+            'id'    => 'Chat-restart-settings',
+            'type'  => 'switcher',
+            'title' => 'تنظیمات شروع مجدد چت',
+            'default' => false,
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+        array(
+            'id'      => 'Response-timeout',
+            'type'    => 'number',
+            'title'   => 'تایم‌اوت پاسخ	(ثانیه)',
+            'default' => 30,
+            'dependency' => array('status-chatbot', '==', 'true'),
+        ),
+
+        
+        array(
+            'id'    => 'use-username',
+            'type'  => 'switcher',
+            'title' => 'استفاده از نام کاربر در چت',
+            'default' => false,
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+
+
+
 
 
         array(
@@ -115,6 +189,8 @@ CSF::createSection($prefix, array(
             'dependency' => array('status-chatbot', '==', 'true'),
 
         ),
+
+
 
 
 

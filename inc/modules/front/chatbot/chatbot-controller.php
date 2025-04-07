@@ -17,6 +17,8 @@ class Hooshyar_Chatbot_Controller
         include HYA_VIEWS_PATH . 'front/chatbot/chatbot-window.php';
     }
 
+
+
     public function handle_chatbot_request()
     {
         check_ajax_referer('hooshyar-chatbot-nonce', 'nonce');
@@ -46,6 +48,9 @@ class Hooshyar_Chatbot_Controller
                 break;
         }
 
+        
+
+        
         $api_key = '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';
 
         $messages = [
@@ -80,7 +85,7 @@ class Hooshyar_Chatbot_Controller
                 'model' =>  $service_model,
                 'messages' => $messages,
                 'temperature' => 0.7,
-                'max_tokens' => 500
+                'max_tokens' => 300
             ]),
             'timeout' => 30
         ];
