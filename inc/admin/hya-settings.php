@@ -1,6 +1,18 @@
 <?php
+
+defined('ABSPATH') || exit('NO Access');
+
 if (!class_exists('CSF')) {
     return;
+
+    add_filter('hya_settings', function ($saved_data, $request_data, $instance) {
+        if (!empty($request_data['Service-api'])) {
+            $encrypted = openssl_encrypt($request_data['Service-api'], 'AES-128-CTR', SECURE_KEY, 0, SECURE_IV);
+            $saved_data['Service-api'] = $encrypted;
+        }
+        return $saved_data;
+    }, 10, 3);
+    
 }
 
 $prefix = 'hya_settings';
@@ -47,7 +59,7 @@ CSF::createSection($prefix, array(
 
         ),
         array(
-            'id'          => 'Service-name',
+            'id'          => 'Service-model',
             'type'        => 'select',
             'title'       => 'مدل هوش مصنوعی',
             'placeholder' => ' یک مدل را انتخاب نمایید',
@@ -74,18 +86,18 @@ CSF::createSection($prefix, array(
             'dependency' => array('Service-name', '==', 'Chatgpt'),
 
         ),
-        array(
-            'id'          => 'Service-Version-deepseek',
-            'type'        => 'select',
-            'title'       => 'نسخه هوش مصنوعی',
-            'placeholder' => ' یک نسخه را انتخاب نمایید',
-            'options'     => array(
-                'deepseek-chat'  => 'deepseek-chat',
+        // array(
+        //     'id'          => 'Service-Version-deepseek',
+        //     'type'        => 'select',
+        //     'title'       => 'نسخه هوش مصنوعی',
+        //     'placeholder' => ' یک نسخه را انتخاب نمایید',
+        //     'options'     => array(
+        //         'deepseek-chat'  => 'deepseek-chat',
 
-            ),
-            'dependency' => array('Service-name', '==', 'Deepseek'),
+        //     ),
+        //     'dependency' => array('Service-name', '==', 'Deepseek'),
 
-        ),
+        // ),
 
         array(
             'id'      => 'Service-api',
