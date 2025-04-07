@@ -36,17 +36,75 @@ CSF::createSection($prefix, array(
 
         array(
             'type'    => 'heading',
-            'content' => 'تنظیمات ظاهری',
+            'content' => ' اتصال به سرویس  ',
         ),
-
 
         array(
             'id'    => 'status-chatbot',
             'type'  => 'switcher',
-            'title' => 'وضعیت نمایش چت بات هوش مصنوعی ',
+            'title' => ' فعال کردن هوشیار  ',
             'default' => true,
 
         ),
+        array(
+            'id'          => 'Service-name',
+            'type'        => 'select',
+            'title'       => 'مدل هوش مصنوعی',
+            'placeholder' => ' یک مدل را انتخاب نمایید',
+            'options'     => array(
+                'Chatgpt'  => 'Chatgpt',
+                'Deepseek'  => 'Deepseek',
+            ),
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+        array(
+            'id'          => 'Service-Version-chatgpt',
+            'type'        => 'select',
+            'title'       => 'نسخه هوش مصنوعی',
+            'placeholder' => ' یک نسخه را انتخاب نمایید',
+            'options'     => array(
+                'gpt-4'  => 'gpt-4',
+                'gpt-4-turbo'  => 'gpt-4-turbo',
+                'gpt-4o-mini'  => 'gpt-4o-mini',
+                'gpt-3.5-turbo'  => 'gpt-3.5-turbo',
+
+
+            ),
+            'dependency' => array('Service-name', '==', 'Chatgpt'),
+
+        ),
+        array(
+            'id'          => 'Service-Version-deepseek',
+            'type'        => 'select',
+            'title'       => 'نسخه هوش مصنوعی',
+            'placeholder' => ' یک نسخه را انتخاب نمایید',
+            'options'     => array(
+                'deepseek-chat'  => 'deepseek-chat',
+
+            ),
+            'dependency' => array('Service-name', '==', 'Deepseek'),
+
+        ),
+
+        array(
+            'id'      => 'Service-api',
+            'type'    => 'text',
+            'title'   => '  کلید API   ',
+            'dependency' => array('status-chatbot', '==', 'true'),
+            'placeholder' => 'لطفا API را وارد نمایید',
+
+        ),
+
+
+        array(
+            'type'    => 'heading',
+            'content' => 'تنظیمات ظاهری',
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+
+
 
         array(
             'id'      => 'chatbot-title',

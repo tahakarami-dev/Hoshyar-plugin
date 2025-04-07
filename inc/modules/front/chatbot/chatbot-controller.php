@@ -57,7 +57,7 @@ class Hooshyar_Chatbot_Controller {
                 'Content-Type' => 'application/json'
             ],
             'body' => json_encode([
-                'model' => 'gpt-4o-mini', // اصلاح شده
+                'model' => 'gpt-4o-mini', 
                 'messages' => $messages,
                 'temperature' => 0.7,
                 'max_tokens' => 500

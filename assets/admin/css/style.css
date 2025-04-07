@@ -351,6 +351,9 @@
     .stats-cards {
         flex-direction: column;
     }
+    .help-sections{
+        flex-direction: column;
+    }
     
     .content-header {
         flex-direction: row;
@@ -623,7 +626,7 @@
 }
 
 .help-sections {
-    display: grid;
+    display: flex;
     gap: 25px;
     margin-bottom: 40px;
 }
