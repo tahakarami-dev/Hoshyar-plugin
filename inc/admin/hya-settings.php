@@ -4,8 +4,8 @@ defined('ABSPATH') || exit('NO Access');
 
 
 
-
 $prefix = 'hya_settings';
+
 
 CSF::createOptions($prefix, array(
     'parent_slug'   => 'hoshyar',
@@ -73,9 +73,10 @@ CSF::createSection($prefix, array(
 
 
             ),
-            'dependency' => array('Service-model', '==', 'Chatgpt'),
-            'dependency' => array('status-chatbot', '==', 'true'),
-
+            'dependency' => array(
+                array('status-chatbot', '==', 'true'),
+                array('Service-model', '==', 'Chatgpt')
+            ),
 
         ),
         array(
@@ -87,8 +88,10 @@ CSF::createSection($prefix, array(
                 'deepseek-chat'  => 'deepseek-chat',
 
             ),
-            'dependency' => array('Service-model', '==', 'Deepseek'),
-            'dependency' => array('status-chatbot', '==', 'true'),
+            'dependency' => array(
+                array('status-chatbot', '==', 'true'),
+                array('Service-model', '==', 'Deepseek')
+            ),
 
 
         ),
@@ -96,92 +99,13 @@ CSF::createSection($prefix, array(
         array(
             'id'      => 'Service-api-key',
             'type'    => 'text',
-            'title'   => 'کلید API',
+            'title'   => 'کلید API (این کلید رمزنگاری خواهد شد)',
             'dependency' => array('status-chatbot', '==', 'true'),
             'placeholder' => 'لطفا API را وارد نمایید',
-
-
+            'sanitize' => function ($value) {
+                return hya_encrypt_decrypt('encrypt', $value);
+            },
         ),
-
-        array(
-            'type'    => 'heading',
-            'content' => 'تنظیمات گفتگو',
-            'dependency' => array('status-chatbot', '==', 'true'),
-
-        ),
-
-        array(
-            'id'      => 'chatbot-welcome-message',
-            'type'    => 'textarea',
-            'title'   => 'پیغام خوش آمدگویی',
-            'default' => 'سلام و خوش آمدید! من هوشیار هستم، دستیار شما. خوشحالم که به اینجا اومدید! هر سوال یا مشکلی که دارید، می‌توانید از من بپرسید. هدف من این است که به شما کمک کنم و تجربه‌ای راحت و مفید داشته باشید. 😊',
-            'dependency' => array('status-chatbot', '==', 'true'),
-        ),
-
-        array(
-            'id'          => 'Chatbot-personality-mode',
-            'type'        => 'select',
-            'title'       => ' حالت شخصیت چت‌بات',
-            'placeholder' => ' یک حالت را انتخاب نمایید',
-            'options'     => array(
-                'Formal'  => 'رسمی',
-                'Friendly'  => 'دوستانه',
-                'Professional'  => 'تخصصی',
-                'Humorous'  => 'شوخ و سرگرم‌کننده',
-                'Casual'  => 'خودمانی',
-                'Empathetic'  => 'احساسی',
-                'Intelligent '  => 'هوشمند و جدی',
-                'Inquisitive '  => 'محققانه',
-
-            ),
-            'dependency' => array('status-chatbot', '==', 'true'),
-
-        ),
-
-        array(
-            'id'      => 'Response-length-limit',
-            'type'    => 'number',
-            'title'   => 'محدودیت طول پاسخ',
-            'default' => 300,
-            'dependency' => array('status-chatbot', '==', 'true'),
-        ),
-        array(
-            'id'      => 'Maximum-save-message',
-            'type'    => 'number',
-            'title'   => 'حداکثر تعداد پیام‌های ذخیره‌شده',
-            'default' => 30,
-            'dependency' => array('status-chatbot', '==', 'true'),
-        ),
-
-        array(
-            'id'    => 'Chat-restart-settings',
-            'type'  => 'switcher',
-            'title' => 'تنظیمات شروع مجدد چت',
-            'default' => false,
-            'dependency' => array('status-chatbot', '==', 'true'),
-
-        ),
-        array(
-            'id'      => 'Response-timeout',
-            'type'    => 'number',
-            'title'   => 'تایم‌اوت پاسخ	(ثانیه)',
-            'default' => 30,
-            'dependency' => array('status-chatbot', '==', 'true'),
-        ),
-
-        
-        array(
-            'id'    => 'use-username',
-            'type'  => 'switcher',
-            'title' => 'استفاده از نام کاربر در چت',
-            'default' => false,
-            'dependency' => array('status-chatbot', '==', 'true'),
-
-        ),
-
-
-
-
 
         array(
             'type'    => 'heading',
@@ -258,6 +182,193 @@ CSF::createSection($prefix, array(
             'default' => '#000000'
 
         ),
+
+        array(
+            'type'    => 'heading',
+            'content' => 'تنظیمات گفتگو',
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+
+        array(
+            'id'      => 'chatbot-welcome-message',
+            'type'    => 'textarea',
+            'title'   => 'پیغام خوش آمدگویی',
+            'default' => 'سلام و خوش آمدید! من هوشیار هستم، دستیار شما. خوشحالم که به اینجا اومدید! هر سوال یا مشکلی که دارید، می‌توانید از من بپرسید. هدف من این است که به شما کمک کنم و تجربه‌ای راحت و مفید داشته باشید. 😊',
+            'dependency' => array('status-chatbot', '==', 'true'),
+        ),
+        array(
+            'id'      => 'chatbot-prompt ',
+            'type'    => 'textarea',
+            'title'   => 'پرامپت سفارشی ',
+            'default' => '',
+            'dependency' => array('status-chatbot', '==', 'true'),
+        ),
+
+        array(
+            'id'          => 'Chatbot-personality-mode',
+            'type'        => 'select',
+            'title'       => ' حالت شخصیت چت‌بات',
+            'placeholder' => ' یک حالت را انتخاب نمایید',
+            'options'     => array(
+                'Formal'  => 'رسمی',
+                'Friendly'  => 'دوستانه',
+                'Professional'  => 'تخصصی',
+                'Humorous'  => 'شوخ و سرگرم‌کننده',
+                'Casual'  => 'خودمانی',
+                'Empathetic'  => 'احساسی',
+                'Intelligent '  => 'هوشمند و جدی',
+                'Inquisitive '  => 'محققانه',
+
+            ),
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+
+        array(
+            'id'          => 'Chatbot-limit-anwering',
+            'type'        => 'select',
+            'title'       => ' نوع پاسخ',
+            'placeholder' => ' یک حالت را انتخاب نمایید',
+            'options'     => array(
+                'short'  => 'کوتاه',
+                'complete'  => 'کامل',
+                'simple'  => 'ساده',
+                'technical'  => 'فنی ',
+
+            
+
+            ),
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+
+        array(
+            'id'     => 'faq',
+            'type'   => 'repeater',
+            'title'  => 'سوالات پرتکرار',
+            'fields' => array(
+
+                array(
+                  'id'    => 'save_message_title',
+                  'type'  => 'text',
+                  'title' => 'عنوان سوال'
+                ),
+                array(
+                  'id'    => 'message_save',
+                  'type'  => 'textarea',
+                  'title' => '  پاسخ سوال '
+                ),
+      
+              ),
+      
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+          ),
+          
+          
+        array(
+            'id'     => 'Content-filter',
+            'type'   => 'repeater',
+            'title'  => ' فیلتر محتوا ',
+            'fields' => array(
+
+                array(
+                  'id'    => 'save_message_title',
+                  'type'  => 'text',
+                  'title' => ' کلمات خاص یا موضع حساس'
+                ),
+            
+              ),
+      
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+          ),
+
+     
+          
+          
+       
+        array(
+            'id'      => 'Response-length-limit',
+            'type'    => 'number',
+            'title'   => '  محدویدت طول پاسخ (حداکثر)',
+            'default' => 300,
+            'dependency' => array('status-chatbot', '==', 'true'),
+        ),
+        array(
+            'id'      => 'Maximum-save-message',
+            'type'    => 'number',
+            'title'   => 'حداکثر تعداد پیام‌های ذخیره‌شده',
+            'default' => 30,
+            'dependency' => array('status-chatbot', '==', 'true'),
+        ),
+
+        array(
+            'id'      => 'Response-timeout',
+            'type'    => 'number',
+            'title'   => 'تایم‌اوت پاسخ	(ثانیه)',
+            'default' => 30,
+            'dependency' => array('status-chatbot', '==', 'true'),
+        ),
+
+        array(
+            'id'      => 'Response-timeout',
+            'type'    => 'number',
+            'title'   => ' سرعت پاسخگویی (ثانیه)',
+            'default' => 4,
+            'dependency' => array('status-chatbot', '==', 'true'),
+        ),
+
+        array(
+            'id'    => 'Chat-restart-settings',
+            'type'  => 'switcher',
+            'title' => 'تنظیمات شروع مجدد چت',
+            'default' => false,
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+
+        array(
+            'id'    => 'use-username',
+            'type'  => 'switcher',
+            'title' => 'استفاده از نام کاربر در چت',
+            'default' => false,
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+
+        array(
+            'id'    => 'user-Learning',
+            'type'  => 'switcher',
+            'title' => 'یادگیری از تعاملات کاربر',
+            'default' => true,
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+
+        array(
+            'id'    => 'user-reaction',
+            'type'  => 'switcher',
+            'title' => 'بازخورد کاربر',
+            'default' => false,
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+
+        array(
+            'id'    => 'use-emoji',
+            'type'  => 'switcher',
+            'title' => 'ارسال ایموجی',
+            'default' => true,
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+
+
+
+
+
 
     )
 ));

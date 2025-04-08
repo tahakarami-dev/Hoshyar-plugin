@@ -35,7 +35,7 @@ class HYA_ASSETS
 
 
         // scripts
-        // wp_enqueue_script('HYA-scripts', HYA_FRONT_ASSETS . 'js/scripts.js', ['jquery'], '', true);
+        wp_enqueue_script('HYA-scripts', HYA_FRONT_ASSETS . 'js/scripts.js', ['jquery'], '', true);
 
         wp_enqueue_script(
             'hooshyar-chatbot-js',
@@ -51,9 +51,9 @@ class HYA_ASSETS
         ]);
 
 
-        // wp_localize_script('HYA-scripts', 'HYA_DATA_AJAX', [
-        //     'ajax_url' => admin_url('admin-ajax.php'),
-        //     'nonce' => wp_create_nonce('HYA_ajax_nonce')
-        // ]);
+        wp_localize_script('HYA-scripts', 'HYA_DATA_AJAX', [
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('HYA_ajax_nonce')
+        ]);
     }
 }

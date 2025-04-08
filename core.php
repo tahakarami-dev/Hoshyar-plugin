@@ -77,10 +77,12 @@ class Core
         register_activation_hook(HYA_BASE_FILE, [$this, 'active']);
         register_deactivation_hook(HYA_BASE_FILE, [$this, 'deactive']);
 
+       
+
 
         hya_settings();
 
-        
+
         new HYA_ASSETS();
         new Hooshyar_Chatbot_Controller();
 
@@ -88,9 +90,7 @@ class Core
         if (is_admin()) {
 
             new HYA_Menu();
-            
         } else {
-
         }
     }
 

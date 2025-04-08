@@ -48,10 +48,9 @@ class Hooshyar_Chatbot_Controller
                 break;
         }
 
+     
         
-
-        
-        $api_key = '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';
+        $api_key = hya_settings('Service-api-key');
 
         $messages = [
             [
