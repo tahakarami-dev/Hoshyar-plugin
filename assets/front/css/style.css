@@ -123,6 +123,14 @@
     margin-right: auto;
     border-bottom-left-radius: 5px;
 }
+.send-message{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.send-message img{
+    margin-left: 2px;
+}
 .chatbot-icon{
     width: 38px ;
     height: 38px;

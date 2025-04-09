@@ -28,7 +28,7 @@ $chatbot_logo = hya_settings('chatbot-logo');
        </div>
     <div class="chatbot-input">
         <input type="text" placeholder="پیام خود را بنویسید...">
-        <button class="send-message"><img width="20px" src="<?php echo HYA_ASSETS . 'images/front/icons8-paper-plane-50 (1).png' ?>" alt=""></button>
+        <button class="send-message"><img width="20px" src="<?php echo HYA_ASSETS . 'images/front/icons8-paper-plane-24 (1).png' ?>" alt=""></button>
 
     </div>
 </div>

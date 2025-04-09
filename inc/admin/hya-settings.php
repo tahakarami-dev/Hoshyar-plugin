@@ -276,7 +276,7 @@ CSF::createSection($prefix, array(
                 array(
                   'id'    => 'save_message_title',
                   'type'  => 'text',
-                  'title' => ' کلمات خاص یا موضع حساس'
+                  'title' => ' کلمات خاص یا موضوع حساس'
                 ),
             
               ),
