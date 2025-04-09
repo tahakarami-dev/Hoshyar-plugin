@@ -51,13 +51,13 @@ jQuery(document).ready(function($) {
                         chatContext = [];
                     }
                 } else {
-                    displayMessage('خطا در پردازش پاسخ سرور', 'bot');
+                    displayMessage('متاسفانه نتوانستیم پاسخ مناسبی از سرور دریافت کنیم. لطفاً دوباره تلاش کنید', 'bot');
                 }
             },
             error: function(xhr, status, error) {
                 hideTypingIndicator();
 
-                let errorMsg = 'خطا در ارتباط با سرور';
+                let errorMsg = 'در حال حاضر ارتباط با سرور برقرار نیست. لطفاً اتصال اینترنت خود را بررسی کرده و مجدد تلاش کنید';
                 try {
                     const response = JSON.parse(xhr.responseText);
                     errorMsg = response.data?.message || errorMsg;

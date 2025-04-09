@@ -48,8 +48,8 @@ class Hooshyar_Chatbot_Controller
                 break;
         }
 
-     
-        
+
+
         $api_key = hya_settings('Service-api-key');
 
         $messages = [
@@ -94,7 +94,7 @@ class Hooshyar_Chatbot_Controller
         if (is_wp_error($response)) {
             error_log('AIMLAPI Error: ' . $response->get_error_message());
             return [
-                'answer' => 'خطا در ارتباط با سرویس هوش مصنوعی',
+                'answer' => 'متاسفیم! مشکلی در ارتباط با سرویس هوش مصنوعی پیش آمده لطفاً چند لحظه دیگر دوباره امتحان کنید',
                 'context' => $context
             ];
         }
@@ -105,14 +105,14 @@ class Hooshyar_Chatbot_Controller
         if ($response_code != 200) {
             error_log('AIMLAPI Error: ' . print_r($response_body, true));
             return [
-                'answer' => 'خطا در پردازش درخواست. کد خطا: ' . $response_code,
+                'answer' => 'اوپس! هنگام پردازش درخواست مشکلی پیش آمد. لطفاً کمی بعد دوباره تلاش کنید (کد خطا: ' . $response_code . ')',
                 'context' => $context
             ];
         }
 
         if (!isset($response_body['choices'][0]['message']['content'])) {
             return [
-                'answer' => 'پاسخی دریافت نشد',
+                'answer' => 'متاسفم، پاسخی از دستیار دریافت نشد. لطفاً سوال خود را دوباره مطرح کنید',
                 'context' => $context
             ];
         }
