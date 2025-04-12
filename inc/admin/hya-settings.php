@@ -115,9 +115,6 @@ CSF::createSection($prefix, array(
         ),
 
 
-
-
-
         array(
             'id'      => 'chatbot-title',
             'type'    => 'text',
@@ -198,7 +195,7 @@ CSF::createSection($prefix, array(
             'dependency' => array('status-chatbot', '==', 'true'),
         ),
         array(
-            'id'      => 'chatbot-prompt ',
+            'id'      => 'chatbot-prompt',
             'type'    => 'textarea',
             'title'   => 'پرامپت سفارشی ',
             'default' => '',
@@ -235,6 +232,27 @@ CSF::createSection($prefix, array(
                 'complete'  => 'کامل',
                 'simple'  => 'ساده',
                 'technical'  => 'فنی ',
+
+            
+
+            ),
+            'dependency' => array('status-chatbot', '==', 'true'),
+
+        ),
+
+        array(
+            'id'          => 'Chatbot-temperature',
+            'type'        => 'select',
+            'title'       => 'میزان خلاقیت',
+            'placeholder' => ' یک حالت را انتخاب نمایید',
+            'options'     => array(
+                '0.0'  => ' بسیار کم',
+                '0.2'  => 'کم',
+                '0.5'  => 'متعادل',
+                '0.7'  => 'خلاق ',
+                '0.9'  => ' بسیار خلاق ',
+                '1.0'  => ' کاملاً تصادفی ',
+
 
             
 

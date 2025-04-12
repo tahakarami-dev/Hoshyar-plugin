@@ -52,10 +52,87 @@ class Hooshyar_Chatbot_Controller
 
         $api_key = hya_settings('Service-api-key');
 
+        // Main Prompt
+
+        $current_user_id = get_current_user_id();
+        $username_logined = get_userdata($current_user_id)->username;
+
+        $welcome_message = hya_settings('chatbot-welcome-message');
+        $custom_prompt = hya_settings('chatbot-prompt');
+        $chat_mode = hya_settings('Chatbot-personality-mode');
+        $response_type = hya_settings('Chatbot-limit-anwering');
+        if (hya_settings('use-username')) {
+            $username = $username_logined;
+        } else {
+            $username = 'کاربر عزیز';
+        }
+        $userSettings = [
+            'welcome_message' => $welcome_message,
+            'custom_prompt' => $custom_prompt,
+            'chat_mode' => $chat_mode,
+            'response_type' => $response_type,
+            'faq_answers' => true,
+            'content_filter' => 'متوسط',
+            'use_username' => true,
+            'learn_from_interactions' => true,
+            'username' => $username
+
+        ];
+
+        // تابع برای ایجاد پرامپت سفارشی
+        function generateCustomPrompt($settings)
+        {
+            $prompt = "شما یک چت‌بات هوش مصنوعی به نام هوشیار هستید. ";
+
+            // اضافه کردن پیغام خوش آمدگویی
+            $prompt .= "پیام خوش آمدگویی شما: '" . $settings['welcome_message'] . "' ";
+
+            // اضافه کردن پرامپت سفارشی
+            $prompt .= $settings['custom_prompt'] . " ";
+
+            // حالت شخصیت
+            $prompt .= "سبک گفتگوی شما باید " . $settings['chat_mode'] . " باشد. ";
+
+            // نوع پاسخ
+            $prompt .= "پاسخ‌های شما باید " . $settings['response_type'] . " باشد. ";
+
+            // سوالات پرتکرار
+            // if ($settings['faq_answers']) {
+            //     $prompt .= "شما باید به سوالات متداول کاربران پاسخ دهید. ";
+            // }
+
+            // // فیلتر محتوا
+            // $prompt .= "سطح فیلتر محتوای شما " . $settings['content_filter'] . " است. ";
+
+            // استفاده از نام کاربر
+            if ($settings['use_username']) {
+                $prompt .= "در پاسخ‌های خود از نام کاربر (" . $settings['username'] . ") استفاده کنید. ";
+            }
+
+            // یادگیری از تعاملات
+            if ($settings['learn_from_interactions']) {
+                $prompt .= "شما باید از تعاملات با کاربر یاد بگیرید و پاسخ‌های خود را بهبود بخشید. ";
+            }
+
+            // دستورات نهایی
+            $prompt .= "همیشه به زبان فارسی پاسخ دهید. ";
+            $prompt .= "اگر سوالی خارج از حیطه دانش شما پرسیده شد، مؤدبانه توضیح دهید که نمی‌توانید کمک کنید. ";
+            $prompt .= "پاسخ‌های شما باید دقیق، مفید و متناسب با فرهنگ ایرانی باشد.";
+
+            return $prompt;
+        }
+
+        $customPrompt = generateCustomPrompt($userSettings);
+
+
+        // ذخیره در متغیر برای استفاده در API چت‌بات
+        $aiSystemPrompt = $customPrompt;
+
+
         $messages = [
             [
                 'role' => 'system',
-                'content' => 'شما یک دستیار فارسی‌زبان و مفید هستید.'
+                'content' => $aiSystemPrompt
             ]
         ];
 
@@ -74,6 +151,10 @@ class Hooshyar_Chatbot_Controller
         ];
 
         $service_model = hya_settings('Service-Version-chatgpt');
+        $max_tokens = hya_settings('Response-length-limit');
+        $timeout = hya_settings('Response-timeout');
+        $temperature = hya_settings('Chatbot-temperature');
+
 
         $args = [
             'headers' => [

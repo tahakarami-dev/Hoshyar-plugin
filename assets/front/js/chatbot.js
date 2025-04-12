@@ -68,10 +68,30 @@ jQuery(document).ready(function($) {
         });
     }
 
+    let typingInterval; 
+
     function showTypingIndicator() {
-        $('.chatbot-messages').append('<div class="message bot-message typing-indicator">در حال تایپ...</div>');
+  
+        $('.typing-indicator').remove();
+    
+   
+        $('.chatbot-messages').append('<div class="message bot-message typing-indicator">در حال اندیشیدن‌<span class="dots">.</span></div>');
         scrollToBottom();
+    
+       
+        let dotCount = 1;
+        typingInterval = setInterval(() => {
+            dotCount = (dotCount % 3) + 1;
+            $('.typing-indicator .dots').text('.'.repeat(dotCount));
+        }, 500);
     }
+
+    function hideTypingIndicator() {
+        clearInterval(typingInterval)
+        $('.typing-indicator').remove();
+    }
+    
+    
 
     function hideTypingIndicator() {
         $('.typing-indicator').remove();
