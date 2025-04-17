@@ -280,14 +280,11 @@ CSF::createSection($prefix, array(
                 '0.7'  => 'خلاق ',
                 '0.9'  => ' بسیار خلاق ',
                 '1.0'  => ' کاملاً تصادفی ',
-
-
-
-
             ),
-            'dependency' => array('status-chatbot', '==', 'true'),
-
+            'default'     => '0.7',
+            'dependency'  => array('status-chatbot', '==', 'true'),
         ),
+        
 
         array(
             'id'     => 'faq',

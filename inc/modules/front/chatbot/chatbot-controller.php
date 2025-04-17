@@ -60,10 +60,13 @@ class Hooshyar_Chatbot_Controller
         $custom_prompt = hya_settings('chatbot-prompt');
         $chat_mode = hya_settings('Chatbot-personality-mode');
         $response_type = hya_settings('Chatbot-limit-anwering');
+        $Contentـfilter = hya_settings('Content-filter');
+        $user_Learning = hya_settings('user-Learning');
+
         if (hya_settings('use-username')) {
             $username = $username_logined;
         } else {
-            $username = 'کاربر عزیز';
+            $username = 'دوست عزیز';
         }
         $userSettings = [
             'welcome_message' => $welcome_message,
@@ -71,9 +74,9 @@ class Hooshyar_Chatbot_Controller
             'chat_mode' => $chat_mode,
             'response_type' => $response_type,
             'faq_answers' => true,
-            'content_filter' => 'متوسط',
+            'content_filter' => $Contentـfilter['save_message_title'],
             'use_username' => true,
-            'learn_from_interactions' => true,
+            'learn_from_interactions' => $user_Learning,
             'username' => $username
 
         ];
@@ -81,7 +84,7 @@ class Hooshyar_Chatbot_Controller
         // تابع برای ایجاد پرامپت سفارشی
         function generateCustomPrompt($settings)
         {
-            $prompt = "شما یک چت‌بات هوش مصنوعی به نام هوشیار هستید. ";
+            $prompt = 'شما یک چت بات و دستیار هوش مصنوعی با نام ' . hya_settings('chatbot-name') . 'هستید';
 
             // اضافه کردن پیغام خوش آمدگویی
             $prompt .= "پیام خوش آمدگویی شما: '" . $settings['welcome_message'] . "' ";
@@ -95,13 +98,8 @@ class Hooshyar_Chatbot_Controller
             // نوع پاسخ
             $prompt .= "پاسخ‌های شما باید " . $settings['response_type'] . " باشد. ";
 
-            // سوالات پرتکرار
-            // if ($settings['faq_answers']) {
-            //     $prompt .= "شما باید به سوالات متداول کاربران پاسخ دهید. ";
-            // }
-
-            // // فیلتر محتوا
-            // $prompt .= "سطح فیلتر محتوای شما " . $settings['content_filter'] . " است. ";
+            // فیلتر محتوا
+            $prompt .= " هنگامی که درباره کلمات یا این موضوع ها سوال پرسیده شد  " . $settings['content_filter'] . "بگو نمی‌توانم به موضوعات غیرمرتبط پاسخ بدم";
 
             // استفاده از نام کاربر
             if ($settings['use_username']) {
@@ -124,7 +122,6 @@ class Hooshyar_Chatbot_Controller
         $customPrompt = generateCustomPrompt($userSettings);
 
 
-        // ذخیره در متغیر برای استفاده در API چت‌بات
         $aiSystemPrompt = $customPrompt;
 
 
@@ -148,11 +145,15 @@ class Hooshyar_Chatbot_Controller
             'role' => 'user',
             'content' => $message
         ];
-
         $service_model = hya_settings('Service-Version-chatgpt');
         $max_tokens = hya_settings('Response-length-limit');
         $timeout = hya_settings('Response-timeout');
         $temperature = hya_settings('Chatbot-temperature');
+        $temperature_number = (int) str_replace(' ', '', $temperature);
+        $timeout_number = (int) str_replace(' ', '', $timeout);
+        $max_tokens_number = (int) str_replace(' ', '', $max_tokens);
+
+
 
 
         $args = [
@@ -163,10 +164,10 @@ class Hooshyar_Chatbot_Controller
             'body' => json_encode([
                 'model' =>  $service_model,
                 'messages' => $messages,
-                'temperature' => 0.7,
-                'max_tokens' => 300
+                'temperature' => $temperature_number,
+                'max_tokens' => $max_tokens_number
             ]),
-            'timeout' => 30
+            'timeout' => $timeout_number
         ];
 
         $response = wp_remote_post($api_url, $args);

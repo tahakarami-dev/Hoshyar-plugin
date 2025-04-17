@@ -2,11 +2,12 @@
 $chatbot_title = hya_settings('chatbot-title');
 $chatbot_desc = hya_settings('chatbot-desc');
 $chatbot_logo = hya_settings('chatbot-logo');
- 
+
 ?>
 <div id="hooshyar-chatbot-window" class="hooshyar-chatbot-window">
     <div class="chatbot-header">
         <div class="content-header">
+
             <div class="logo">
                 <?php if ($chatbot_logo['url']): ?>
                     <img class="chatbot-logo" src="<?php echo $chatbot_logo['url'] ?>" alt="">
@@ -22,6 +23,7 @@ $chatbot_logo = hya_settings('chatbot-logo');
         <div class="cloes-holder">
             <button class="close-chatbot"><img width="20px" src="<?php echo HYA_ASSETS . 'images/front/icons8-close-24.png' ?>" alt=""></button>
         </div>
+
     </div>
   
 
@@ -46,6 +48,7 @@ $chatbot_logo = hya_settings('chatbot-logo');
         </div>
 
         <div id="chat-content" class="chat-content">
+
         </div>
     </div>
 
@@ -55,3 +58,4 @@ $chatbot_logo = hya_settings('chatbot-logo');
     </div>
 </div>
 
+<audio id="sound-effect" style="display: none;" src="<?php echo HYA_FRONT_ASSETS . '/sounds/mixkit-software-interface-back-2575.wav' ?>"></audio>

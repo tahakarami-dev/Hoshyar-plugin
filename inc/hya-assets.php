@@ -21,6 +21,7 @@ class HYA_ASSETS
         wp_enqueue_script('HYA-main', HYA_ADMIN_ASSETS . 'js/main.js', ['jquery'], HYA_VER, true);
         wp_enqueue_script('HYA-chart',  'https://cdn.jsdelivr.net/npm/chart.js', ['jquery'], HYA_VER, true);
 
+
         wp_localize_script('HYA-main', 'HYA_DATA', [
             'ajax_url' => admin_url('admin-ajax.php'),
         ]);
@@ -45,9 +46,16 @@ class HYA_ASSETS
             true
         );
 
+        
+        $bot_avatar = HYA_ASSETS .  'images/front/icons8-bot.gif';
+        $copy_icon = HYA_ASSETS .  'images/front/copy.png';
+
+
         wp_localize_script('hooshyar-chatbot-js', 'hooshyarChatbot', [
             'ajax_url' => admin_url('admin-ajax.php'),
-            'nonce' => wp_create_nonce('hooshyar-chatbot-nonce')
+            'nonce' => wp_create_nonce('hooshyar-chatbot-nonce'),
+            'bot_avatar' => $bot_avatar,
+            'copy_icon'=> $copy_icon
         ]);
 
 
