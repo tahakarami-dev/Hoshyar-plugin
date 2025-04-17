@@ -44,7 +44,7 @@ CSF::createSection($prefix, array(
         array(
             'id'    => 'status-chatbot',
             'type'  => 'switcher',
-            'title' => ' فعال کردن هوشیار  ',
+            'title' => ' فعال کردن چت بات  ',
             'default' => true,
 
         ),
@@ -125,8 +125,8 @@ CSF::createSection($prefix, array(
         array(
             'id'      => 'chatbot-desc',
             'type'    => 'text',
-            'title'   => ' توضیحات چت بات  ',
-            'default' => '  با عشق پاسخگوی سوالات شما هستیم ',
+            'title'   => 'توضیحات چت بات',
+            'default' => 'با عشق پاسخگوی سوالات شما هستیم',
             'dependency' => array('status-chatbot', '==', 'true'),
 
         ),
@@ -146,8 +146,28 @@ CSF::createSection($prefix, array(
             'default' =>   HYA_ASSETS . 'images/front/icons8-robot-48.png'
 
         ),
+        array(
+            'id'          => 'chatbot-animation',
+            'type'        => 'select',
+            'title'       => 'جلب توجه آیکون',
+            'placeholder' => ' یک انیمیشن را انتخاب نمایید',
+            'options'     => array(
+                'shake'  => 'shake',
+                'pulse'  => 'pulse',
+                'rotate'  => 'rotate',
+                'bounce'  => 'bounce',
+                'flash'  => 'flash',
+            ),
+            'dependency' => array('status-chatbot', '==', 'true'),
 
-
+        ),
+        array(
+            'id'      => 'chatbot-animation-time',
+            'type'    => 'number',
+            'title'   => ' نمایش بعد از (ثانیه)',
+            'default' => '3',
+            'dependency' => array('status-chatbot', '==', 'true'),
+        ),
         array(
             'id'    => 'main-color',
             'type'  => 'color',
@@ -155,9 +175,9 @@ CSF::createSection($prefix, array(
             'dependency' => array('status-chatbot', '==', 'true'),
             'output' => array(
                 'color' => '',
-                'background-color' => '.hooshyar-chatbot-trigger ,.chatbot-header,.chatbot-input button,.bot-message',
+                'background-color' => '.hooshyar-chatbot-trigger ,.chatbot-header,.chatbot-input button,.bot-message, .chatbot-messages .submit-form',
                 'border-bottom-color' => ',',
-                'border-color' => ''
+                'border-color' => '.form-group input:hover, .form-group input:focus'
             ),
             'output_important' => true,
             'default' => '#16c77a'
@@ -185,6 +205,14 @@ CSF::createSection($prefix, array(
             'content' => 'تنظیمات گفتگو',
             'dependency' => array('status-chatbot', '==', 'true'),
 
+        ),
+
+        array(
+            'id'      => 'chatbot-name',
+            'type'    => 'text',
+            'title'   => 'نام دستیار هوش مصنوعی',
+            'default' => 'هوشیار ',
+            'dependency' => array('status-chatbot', '==', 'true'),
         ),
 
         array(
@@ -233,7 +261,7 @@ CSF::createSection($prefix, array(
                 'simple'  => 'ساده',
                 'technical'  => 'فنی ',
 
-            
+
 
             ),
             'dependency' => array('status-chatbot', '==', 'true'),
@@ -254,7 +282,7 @@ CSF::createSection($prefix, array(
                 '1.0'  => ' کاملاً تصادفی ',
 
 
-            
+
 
             ),
             'dependency' => array('status-chatbot', '==', 'true'),
@@ -268,23 +296,23 @@ CSF::createSection($prefix, array(
             'fields' => array(
 
                 array(
-                  'id'    => 'save_message_title',
-                  'type'  => 'text',
-                  'title' => 'عنوان سوال'
+                    'id'    => 'save_message_title',
+                    'type'  => 'text',
+                    'title' => 'عنوان سوال'
                 ),
                 array(
-                  'id'    => 'message_save',
-                  'type'  => 'textarea',
-                  'title' => '  پاسخ سوال '
+                    'id'    => 'message_save',
+                    'type'  => 'textarea',
+                    'title' => '  پاسخ سوال '
                 ),
-      
-              ),
-      
+
+            ),
+
             'dependency' => array('status-chatbot', '==', 'true'),
 
-          ),
-          
-          
+        ),
+
+
         array(
             'id'     => 'Content-filter',
             'type'   => 'repeater',
@@ -292,21 +320,21 @@ CSF::createSection($prefix, array(
             'fields' => array(
 
                 array(
-                  'id'    => 'save_message_title',
-                  'type'  => 'text',
-                  'title' => ' کلمات خاص یا موضوع حساس'
+                    'id'    => 'save_message_title',
+                    'type'  => 'text',
+                    'title' => ' کلمات خاص یا موضوع حساس'
                 ),
-            
-              ),
-      
+
+            ),
+
             'dependency' => array('status-chatbot', '==', 'true'),
 
-          ),
+        ),
 
-     
-          
-          
-       
+
+
+
+
         array(
             'id'      => 'Response-length-limit',
             'type'    => 'number',

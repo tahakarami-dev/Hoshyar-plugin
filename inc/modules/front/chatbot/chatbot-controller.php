@@ -44,7 +44,6 @@ class Hooshyar_Chatbot_Controller
                 break;
             case 'Deepseek':
                 $api_url = 'https://api.deepseek.com/chat/completions';
-
                 break;
         }
 
