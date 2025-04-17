@@ -138,7 +138,7 @@ function displayBotMessageWithAnimation(message) {
 
     const messageElement = $(`
       <div class="message bot-message">
-          <img class="bot-avatar" src="${botAvatar}" alt="آواتار چت بات">
+          <img class="bot-avatar" src="" alt="آواتار چت بات">
           <div class="message-content">
               <div class="message-text typing-animation"></div>
               <div class="message-time">${timeString}</div>
