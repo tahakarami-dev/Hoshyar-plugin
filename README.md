@@ -1,4 +1,5 @@
-Hoshyar Project 
+Hoshyar Project 🤖
+
 Hoshyar Project is an AI assistant based on advanced technologies that aims to improve the experience of managing websites and work processes through intelligent and automated systems. Using natural language processing and machine learning capabilities, this project is able to help website administrators improve the performance and efficiency of their sites by using innovative solutions.
 
 Key features of the project:
