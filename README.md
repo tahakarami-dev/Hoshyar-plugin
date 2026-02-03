@@ -1,14 +1,9 @@
-<h1>پروژه هوشیار 🤖</h1>
+Hoshyar Project 
+Hoshyar Project is an AI assistant based on advanced technologies that aims to improve the experience of managing websites and work processes through intelligent and automated systems. Using natural language processing and machine learning capabilities, this project is able to help website administrators improve the performance and efficiency of their sites by using innovative solutions.
 
-<p>پروژه هوشیار یک دستیار هوش مصنوعی مبتنی بر فناوری‌های پیشرفته است که هدف آن ارتقاء تجربه مدیریت وب‌سایت‌ها و فرآیندهای کاری از طریق سیستم‌های هوشمند و خودکار می‌باشد. این پروژه با استفاده از قابلیت‌های پردازش زبان طبیعی و یادگیری ماشین، قادر است به مدیران وب‌سایت‌ها کمک کند تا با بهره‌گیری از راهکارهای نوین، عملکرد و کارایی سایت‌های خود را بهبود بخشند. 🌐</p>
-
-<h3>ویژگی‌های کلیدی پروژه: ✨</h3>
-
-<ul>
-  <li><strong>پشتیبانی از وردپرس</strong>: هوشیار به‌طور خاص برای استفاده در سیستم مدیریت محتوا (CMS) وردپرس طراحی شده است. 🖥️</li>
-  <li><strong>هوش مصنوعی در کمک به مدیریت</strong>: از قابلیت‌های پردازش زبان طبیعی و الگوریتم‌های یادگیری ماشین برای انجام وظایفی مانند تولید محتوا، بهبود تجربه کاربری و پشتیبانی از کاربر استفاده می‌کند. 🧠</li>
-  <li><strong>اتوماتیک‌سازی فرآیندها</strong>: هوشیار قادر است وظایف تکراری و زمان‌بر را خودکارسازی کند، از جمله مدیریت مطالب، بهینه‌سازی SEO، تحلیل داده‌ها و تعامل با کاربران. ⚙️</li>
-  <li><strong>کاربرپسند</strong>: طراحی ساده و کاربردی به کاربران کمک می‌کند تا بدون نیاز به دانش تخصصی از امکانات هوش مصنوعی بهره‌برداری کنند. 🎨</li>
-</ul>
-
-<p>هدف نهایی پروژه هوشیار، فراهم کردن یک دستیار هوش مصنوعی است که به ساده‌سازی فرآیندهای دیجیتال کمک کرده و توانمندی‌های مدیریت سایت را افزایش دهد. 🚀</p>
+Key features of the project:
+WordPress support: Hoshyar is specifically designed for use with the WordPress content management system (CMS).
+AI in management assistance: It uses natural language processing capabilities and machine learning algorithms to perform tasks such as content production, improving the user experience and supporting the user.
+Process automation: Hoshyar is able to automate repetitive and time-consuming tasks, including content management, SEO optimization, data analysis and user interaction.
+User-friendly: Simple and functional design helps users to take advantage of AI capabilities without the need for specialized knowledge.
+The ultimate goal of the Hooshyar project is to provide an AI assistant that helps simplify digital processes and enhance site management capabilities.
